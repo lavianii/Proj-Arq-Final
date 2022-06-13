@@ -1,0 +1,8 @@
+create database cep;
+use cep;
+CREATE TABLE IF NOT EXISTS pessoas (
+	cpf TINYINT UNSIGNED, 
+	nome VARCHAR(60) NOT NULL, 
+    complemento INT NOT NULL, 
+    nmrCasa INT NOT NULL, 
+			PRIMARY KEY (cpf));
