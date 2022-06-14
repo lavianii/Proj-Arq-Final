@@ -1,6 +1,6 @@
-const comunicado    = require('./comunicado.js');
-const pessoa        = require('./pessoa.js');
-const pessoas       = require('./pessoas.js');
+const comunicado    = require('./comunicado');
+const pessoa        = require('../database/dbo/pessoa.js');
+const pessoas       = require('../database/dao/pessoas.js');
 
 async function inclusao(req, res)   
 {
@@ -198,7 +198,7 @@ async function recupereTodos(req, res)
         return res.status(422).json(erro);    
     }
 
-    const ret= await pessoas.recupereTodos(); 
+    const ret = await pessoas.recupereTodos(); 
 
     if (ret === null) 
     {
@@ -208,11 +208,17 @@ async function recupereTodos(req, res)
 
     if (ret === false) 
     {
-        const erro=comunicado.novo('FNC','Falha no comando de SQL','O comando de SQL apresenta algum erro').object; 
+        const erro = comunicado.novo('FNC','Falha no comando de SQL','O comando de SQL apresenta algum erro').object; 
         return res.status(409).json(erro);    
     }
 
     return res.status(200).json(ret); 
 }
 
-module.exports={inclusao, atualizacao, remocao, recuperacaoDeUm, recupereTodos};
+module.exports = {
+    inclusao, 
+    atualizacao, 
+    remocao, 
+    recuperacaoDeUm, 
+    recupereTodos
+};

@@ -3,7 +3,7 @@ async function getConexao()
     if (global.conexao && global.conexao.state !== 'disconnected') {return global.conexao;}
 
     const mysql2    = require('mysql2/promise'); 
-    const bdConfig  = require('./bdconfig'); 
+    const bdConfig  = require('./bdconfig.js'); 
 
     try 
     {

@@ -1,4 +1,4 @@
-const bd = require('./bd/bd.js'); //bd é o modulo onde esta a nossa conexao
+const bd = require('../bd.js'); //bd é o modulo onde esta a nossa conexao
 
 async function inclua(pessoa) 
 {
@@ -45,8 +45,8 @@ async function remova(cpf)
   
     try 
     {
-        const sql= 'DELETE FROM pessoas WHERE cpf=?';
-        const dados= [cpf];
+        const sql   = 'DELETE FROM pessoas WHERE cpf=?';
+        const dados = [cpf];
         await conexao.query (sql,dados);
         return true;
     } 
@@ -63,9 +63,9 @@ async function recupereUm(cpf) {
 
     try 
     {
-        const sql= 'SELECT * FROM pessoas WHERE cpf=?';
-        const dados= [cpf];
-        const [linhas]= await conexao.query (sql,dados); 
+        const sql       = 'SELECT * FROM pessoas WHERE cpf=?';
+        const dados     = [cpf];
+        const [linhas]  = await conexao.query (sql,dados); 
 
         return linhas;
         

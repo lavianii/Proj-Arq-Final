@@ -1,6 +1,7 @@
 const express   = require('express');
-const bd        = require('./bd/bd.js');
-const rotas     = require('./rotas.js');
+const bd        = require('./database/bd.js');
+const rotas     = require('./rotas/rotas.js');
+
 
 function middleWareGlobal(req, res, next) 
 {
@@ -36,11 +37,11 @@ async function ativaçaoDoServidor()
     app.use(middleWareGlobal);
 
 
-    app.post('/inculir'             ,rotas.inclusao);
+    app.post('/inculir'          ,rotas.inclusao);
     app.put('/alterar/:cpf'      ,rotas.atualizacao);
     app.delete('/remover/:cpf'   ,rotas.remocao);
     app.get('/ver1/:cpf'         ,rotas.recuperacaoDeUm);
-    app.get('/verTodos'             ,rotas.recupereTodos);
+    app.get('/verTodos'          ,rotas.recupereTodos);
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);
