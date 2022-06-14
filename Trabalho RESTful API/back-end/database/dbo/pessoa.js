@@ -1,15 +1,18 @@
 class Pessoa{
-    //Criando atributos privativps
+    //Criando atributos privativos
     #cpf
     #nome
+    #cep
     #complemento
     #nmrCasa
 
-    constructor(cpf, nome, complemento, nmrCasa)
+
+    constructor(cpf,nome,cep,complemento,nmrCasa)
     {
         // esse construtor esta chamando os meus setters
         this.cpf         = cpf;
         this.nome        = nome;
+        this.cep         = cep;
         this.complemento = complemento;
         this.nmrCasa     = nmrCasa;
     }
@@ -23,6 +26,10 @@ class Pessoa{
     get nome()
     {
         return this.#nome;
+    }
+    get cep()
+    {
+        return this.#cep;
     }
 
     get complemento()
@@ -38,7 +45,7 @@ class Pessoa{
 
     set cpf (cpf)
     {
-        if (cpf === undefined || typeof cpf !== 'number' || isNaN(cpf) || cpf !== parseInt(cpf) || cpf <= 0)
+        if (cpf===undefined || typeof cpf !== 'string' || cpf==='')
         {
             throw ('Cpf Invalido!!');
         }
@@ -55,10 +62,19 @@ class Pessoa{
             
         this.#nome = nome;
     }
+    set cep (cep)
+    {
+        if (nome===undefined || typeof codigo !== 'string' || nome==='')
+        {
+            throw ('Cep Invalido!!');
+        }
+
+        this.cep = cep;
+    }
 
     set complemento(complemento)
     {
-        if (complemento === undefined || typeof complemento !== 'number' || isNaN(complemento) || complemento <= 0)
+        if ( typeof complemento !== 'string' ) // nao confiro se esta vazio pois pode ser nulo
         {
             throw ('Complemento Invalido!!');
         }
@@ -76,9 +92,9 @@ class Pessoa{
     }
 }
 
-function novo(cpf, nome, complemento, nmrCasa) 
+function novo(cpf, nome,cep, complemento, nmrCasa) 
 {
-    return new Pessoa(cpf, nome, complemento, nmrCasa);
+    return new Pessoa(cpf,cep, nome, complemento, nmrCasa);
 }
 
 module.exports={novo};

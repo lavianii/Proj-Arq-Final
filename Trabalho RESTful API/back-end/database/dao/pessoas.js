@@ -7,8 +7,8 @@ async function inclua(pessoa)
 
     try 
     {
-        const sql   ='INSERT INTO pessoas (cpf, nome, complemento, nmrCasa) VALUES (?, ?, ?, ?)';
-        const dados = [pessoa.cpf, pessoa.nome, pessoa.complemento, pessoa.nmrCasa];
+        const sql   ='INSERT INTO pessoas (cpf, nome, cep, complemento, nmrCasa) VALUES (?, ?, ?, ?, ?)';
+        const dados = [pessoa.cpf, pessoa.nome,pessoa.cep, pessoa.complemento, pessoa.nmrCasa];
         await conexao.query (sql, dados);
         
         return true;  
@@ -19,15 +19,33 @@ async function inclua(pessoa)
     }
 }
 
-async function atualize (pessoa) 
+async function atualizeEndereço (pessoa) 
 {
     const conexao = await bd.getConexao();
     if(conexao == null) {return null}
   
     try 
     {
-        const sql= 'UPDATE pessoas SET nome=?, complemento=? WHERE cpf=?';
-        const dados= [pessoa.nome, pessoa.complemento, pessoa.nmrCasa ,pessoa.cpf ];
+        const sql= 'UPDATE pessoas SET cep=?, complemento=?, nmrCasa=? WHERE cpf=?';
+        const dados= [pessoa.cep, pessoa.complemento, pessoa.nmrCasa ,pessoa.cpf ];
+        await conexao.query (sql,dados);
+
+        return true;
+    } 
+    catch (error) 
+    {
+        return false;
+    }
+}
+async function atualizeNome (pessoa) 
+{
+    const conexao = await bd.getConexao();
+    if(conexao == null) {return null}
+  
+    try 
+    {
+        const sql= 'UPDATE pessoas SET nome=?  WHERE cpf=?';
+        const dados= [pessoa.nome , pessoa.cpf ];
         await conexao.query (sql,dados);
 
         return true;
@@ -48,6 +66,7 @@ async function remova(cpf)
         const sql   = 'DELETE FROM pessoas WHERE cpf=?';
         const dados = [cpf];
         await conexao.query (sql,dados);
+
         return true;
     } 
     catch (error) 
@@ -56,7 +75,7 @@ async function remova(cpf)
     }
 }
 
-async function recupereUm(cpf) {
+async function recupereCadastro(cpf) {
 
     const conexao = await bd.getConexao();
     if(conexao == null) {return null}
@@ -75,21 +94,25 @@ async function recupereUm(cpf) {
         return false;
     }
 }
-async function recupereTodos() 
-{
+async function recupereCep(cpf) {
+
     const conexao = await bd.getConexao();
-    if(conexao == null){return null} 
+    if(conexao == null) {return null}
 
     try 
     {
-        const sql       = 'SELECT * FROM pessoas';
-        const [linhas]  = await conexao.query (sql); 
+        const sql       = 'SELECT cep FROM pessoas WHERE cpf=?';
+        const dados     = [cpf];
+        const [linhas]  = await conexao.query (sql,dados); 
 
-        return linhas;  
-    }
+        return linhas;
+        
+    } 
     catch (error) 
-    {
+    {    
         return false;
     }
 }
-module.exports={inclua, atualize, remova, recupereUm, recupereTodos};
+
+
+module.exports={inclua, atualizeEndereço,atualizeNome, remova, recupereCadastro,recupereCep,recupereUm};

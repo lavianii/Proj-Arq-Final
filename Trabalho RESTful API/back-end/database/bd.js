@@ -23,7 +23,7 @@ async function estruturese()
     {
         return null;
     }
-    const sql = 'CREATE TABLE IF NOT EXISTS pessoas (cpf TINYINT UNSIGNED, nome VARCHAR(60) NOT NULL, complemento INT NOT NULL, nmrCasa INT NOT NULL, PRIMARY KEY (cpf))';
+    const sql = 'CREATE TABLE IF NOT EXISTS pessoas (cpf TINYINT UNSIGNED, nome VARCHAR(60) NOT NULL, cep VARCHAR(20) NOT NULL, complemento VARCHAR(60) , nmrCasa INT NOT NULL, PRIMARY KEY (cpf))';
    
     try 
     {
@@ -37,7 +37,4 @@ async function estruturese()
     }
 }
 
-module.exports = {
-    getConexao,
-    estruturese
-}
+module.exports = { getConexao, estruturese}

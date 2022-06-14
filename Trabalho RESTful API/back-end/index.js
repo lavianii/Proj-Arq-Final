@@ -3,7 +3,7 @@ const bd        = require('./database/bd.js');
 const rotas     = require('./rotas/rotas.js');
 
 
-function middleWareGlobal(req, res, next) 
+/*function middleWareGlobal(req, res, next) 
 {
     console.time('Duraçao'); 
     console.log('Iniciou o processamento da requisiçao'+req.metod+'em'+req.url);
@@ -12,7 +12,7 @@ function middleWareGlobal(req, res, next)
 
     console.log('Terminou o processamento da requisiçao'+req.metod+'em'+req.url);
     console.timeEnd('Duraçao');
-}
+}*/
 
 async function ativaçaoDoServidor() 
 {
@@ -37,11 +37,12 @@ async function ativaçaoDoServidor()
     app.use(middleWareGlobal);
 
 
-    app.post('/inculir'          ,rotas.inclusao);
-    app.put('/alterar/:cpf'      ,rotas.atualizacao);
-    app.delete('/remover/:cpf'   ,rotas.remocao);
-    app.get('/ver1/:cpf'         ,rotas.recuperacaoDeUm);
-    app.get('/verTodos'          ,rotas.recupereTodos);
+    app.post('/inculir'                  ,rotas.inclusao);
+    app.put('/alterarEndereco/:cpf'      ,rotas.atualizacaoEndereço);
+    app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
+    app.delete('/remover/:cpf'           ,rotas.remocao);
+    app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
+    app.get('/verCep'                    ,rotas.recuperacaoCep);
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);
