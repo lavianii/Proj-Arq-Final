@@ -37,7 +37,7 @@ async function ativaçaoDoServidor()
     app.use(middleWareGlobal);
 
 
-    app.post('/inculir'                  ,rotas.inclusao);
+    app.post('/incluir'                  ,rotas.inclusao);
     app.put('/alterarEndereco/:cpf'      ,rotas.atualizacaoEndereço);
     app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
     app.delete('/remover/:cpf'           ,rotas.remocao);
