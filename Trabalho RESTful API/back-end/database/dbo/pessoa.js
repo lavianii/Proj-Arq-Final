@@ -9,7 +9,7 @@ class Pessoa{
 
     constructor(cpf,nome,cep,complemento,nmrCasa)
     {
-        // esse construtor esta chamando os meus setters
+        //esse construtor esta chamando os meus setters
         this.cpf         = cpf;
         this.nome        = nome;
         this.cep         = cep;
@@ -41,8 +41,8 @@ class Pessoa{
     {
         return this.#nmrCasa;
     }
-    //Criando setters
 
+    //Criando setters
     set cpf (cpf)
     {
         if (cpf===undefined || typeof cpf !== 'string' || cpf==='')
@@ -74,7 +74,7 @@ class Pessoa{
 
     set complemento(complemento)
     {
-        if ( typeof complemento !== 'string' ) // nao confiro se esta vazio pois pode ser nulo
+        if (typeof complemento !== 'string') // nao confiro se esta vazio pois pode ser nulo
         {
             throw ('Complemento Invalido!!');
         }
@@ -86,12 +86,13 @@ class Pessoa{
     {
         if(nmrCasa === undefined || typeof nmrCasa !== 'number' || isNaN(nmrCasa) || nmrCasa <= 0)
         {
-            throw('Numero de casa Invalido!!');
+           throw('Numero de casa Invalido!!');
         }
         this.#nmrCasa = nmrCasa;
     }
 }
 
+//esta funcao cria um novo usuario
 function novo(cpf, nome,cep, complemento, nmrCasa) 
 {
     return new Pessoa(cpf,cep, nome, complemento, nmrCasa);

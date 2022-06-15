@@ -19,7 +19,7 @@ async function inclua(pessoa)
     }
 }
 
-async function atualizeEndereço (pessoa) 
+async function atualizeEndereco (pessoa) 
 {
     const conexao = await bd.getConexao();
     if(conexao == null) {return null}
@@ -115,4 +115,13 @@ async function recupereCep(cpf) {
 }
 
 
-module.exports={inclua, atualizeEndereço,atualizeNome, remova, recupereCadastro,recupereCep,recupereUm};
+module.exports = 
+{
+    inclua, 
+    atualizeEndereco,
+    atualizeNome, 
+    remova, 
+    recupereCadastro,
+    recupereCep,
+    //recupereUm não entendi me explica depois, pq quando vai rodar da erro e não contém método com ele
+};
