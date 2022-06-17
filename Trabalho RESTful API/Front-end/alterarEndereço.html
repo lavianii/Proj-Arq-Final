@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styleAlterarEndereço.css">
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="./img/Icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Endereço
+    </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="./incluir.html">Cadastro <span class="sr-only">(Página atual)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./excluir.html">Excluir</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./consulta.html">Consultar</a>
+                </li>
+
+          </ul>
+        </div>
+</nav>
+
+
+<div class="container">
+<div class="row">
+
+    <div class="col-12 text-center">
+        <div class="card">
+            <div class="card-body ">
+                <h1>Atualiza Endereço</h1>
+            
+            <form method="post" action="/incluir" id="formulario" class="form-group" >
+            
+                <div class=" input mb-2 mt-2" >
+                    <input type="text" placeholder="Digite seu CPF" class="form-control" id="cpf" required>
+                </div>
+
+                <div class=" input mb-2 ">
+                    <input type="text"  placeholder="Digite seu CEP" class="form-control" id="cep"  required>
+                </div>
+
+                <div class=" input mb-2" >
+                    <input type="number"  placeholder="Digite o numero de sua residencia"  class="form-control" id="nmrCasa" required>
+                </div>
+
+                <div class=" input mb-3">
+                    <input type="text"  placeholder="Digite seu complemento"  class="form-control" id="complemento"  >
+                </div>
+                <div class=" input">
+                    <input type="submit"  value="Enviar" class="form-control"  aria-describedby="inputGroup-sizing-default" id="enviar">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    
+</body>
+    <script src="./Js/alterarEndereço.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>

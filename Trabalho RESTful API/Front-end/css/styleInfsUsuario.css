@@ -1,0 +1,55 @@
+body{
+    background-color: #cbd9ea;
+    background-image: url(../img/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center ;
+
+
+}
+
+.card{
+    box-shadow: 3px 6px 8px rgb(100,100,100,0.9);
+    margin-left: 30px;
+    margin-right: 850px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+
+}
+
+
+
+#lista{
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 20px;
+    
+}
+
+.descriçao{
+    margin-left: 18px;
+}
+.titulos{
+    text-align: left;
+    margin-left: 18px;
+
+}
+.links{
+    padding-left: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+#link{
+    border-radius: 6px;
+    background-color: aquamarine;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 43px;
+    padding-right: 43px;
+    margin-left: 10px;
+    background-color: black;
+    color: azure;
+  
+}
