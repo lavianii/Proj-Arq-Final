@@ -1,34 +1,38 @@
-const { response } = require("express");
 
-const nome        = document.getElementById('nome')
-const cpf         = document.getElementById('cpf');
-const cep         = document.getElementById('cep');
-const nmrCasa     = document.getElementById('nmrCasa');
-const complemento = document.getElementById('complemento');
-const enviar      = document.getElementById('enviar');
 
-/*if (enviar) {
-    enviar.addEventListener('click',(event)=>{
-        fetch('https://',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application.json'
-            },
-            body: JSON.stringify({
-                nome: nome.value,
-                cpf: cpf.Value,
-                cep: cep.Value,
-                nmrCasa: nmrCasa.Value,
-                complemento: complemento.Value,
-                
+function fazPost(url,body) {
+    console.log(body);
+    let resquest= new XMLHttpRequest();
+    resquest.open("POST",url,true);
+    resquest.setRequestHeader("Content-type","application/json");
+    resquest.send(JSON.stringify(body));
 
-            })
-        }).then((response)=>{
-            return response.json();
-        }).then((data)=>{
-            console.log(data);
-        })
-    })
+    resquest.onload=function () {
+        console.log(this.responseText);
+    }
+    return resquest.responseText;
     
-}*/
+}
+
+function incluir() {
+    event.preventDefault();
+
+    const url="http://127.0.0.1:5500/incluir";
+    const nome        = document.getElementById('nome').value;
+    const cpf         = document.getElementById('cpf').value;
+    const cep         = document.getElementById('cep').value;
+    const nmrCasa     = document.getElementById('nmrCasa').value;
+    const complemento = document.getElementById('complemento').value;
+
+    let body={
+        "nome": nome,
+        "cpf":  cpf,
+        "cep":  cep,
+        "complemento": complemento,
+        "nmrCasa": nmrCasa
+    }
+    fazPost(url,body);
+}
+
+
 
