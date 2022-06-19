@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.27.2",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.16"
@@ -7,7 +8,6 @@
   "name": "trabalho-restful-api",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon index.js"
   },

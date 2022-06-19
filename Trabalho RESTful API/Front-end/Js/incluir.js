@@ -1,5 +1,3 @@
-
-
 function fazPost(url,body) {
     console.log(body);
     let resquest= new XMLHttpRequest();
@@ -7,7 +5,7 @@ function fazPost(url,body) {
     resquest.setRequestHeader("Content-type","application/json");
     resquest.send(JSON.stringify(body));
 
-    resquest.onload=function () {
+    resquest.onload = function () {
         console.log(this.responseText);
     }
     return resquest.responseText;
@@ -15,23 +13,27 @@ function fazPost(url,body) {
 }
 
 function incluir() {
-    event.preventDefault();
 
-    const url="http://127.0.0.1:5500/incluir";
+    const url         = "http://localhost:3000/incluir";
     const nome        = document.getElementById('nome').value;
     const cpf         = document.getElementById('cpf').value;
     const cep         = document.getElementById('cep').value;
     const nmrCasa     = document.getElementById('nmrCasa').value;
     const complemento = document.getElementById('complemento').value;
 
-    let body={
+    let json = {
         "nome": nome,
         "cpf":  cpf,
         "cep":  cep,
         "complemento": complemento,
         "nmrCasa": nmrCasa
+
+
     }
-    fazPost(url,body);
+    axios.post(url ,json
+        ).then((e) => { location.reload();
+        alert("Dados Enviados com sucesso")})
+        .catch((err) => console.log(err))
 }
 
 

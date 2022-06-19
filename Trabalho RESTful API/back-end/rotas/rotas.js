@@ -4,17 +4,18 @@ const pessoas       = require('../database/dao/pessoas.js');
 
 async function inclusao(req, res)   
 {
+   
     if (Object.values(req.body).length != 5 || !req.body.cpf || !req.body.nome|| !req.body.cep || !req.body.complemento || !req.body.nmrCasa) 
     {     
         const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 5 informações esperadas(cpf, nome, cep, complemento, numero de sua casa)').object; 
        
         return res.status(422).json(erro); 
     }
-
-    let pessoa;
+   
+    let pessoaa;
     try 
     {
-        pessoa = pessoa.novo(req.body.cpf, req.body.nome,req.body.cep, req.body.complemento, req.body.nmrCasa)
+        pessoaa = pessoa.novo(req.body.cpf, req.body.nome,req.body.cep, req.body.complemento, req.body.nmrCasa)
     } 
     catch (error) 
     {
@@ -22,7 +23,7 @@ async function inclusao(req, res)
         return res.status(422).json(erro); 
     }
 
-    const ret = await pessoa.inclua(pessoa); 
+    const ret = await pessoas.inclua(pessoaa); 
 
     if (ret === null) 
     {

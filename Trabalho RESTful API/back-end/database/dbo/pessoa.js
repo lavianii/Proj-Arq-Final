@@ -9,12 +9,13 @@ class Pessoa{
 
     constructor(cpf,nome,cep,complemento,nmrCasa)
     {
+        console.log('cheguei');
         //esse construtor esta chamando os meus setters
-        this.cpf         = cpf;
-        this.nome        = nome;
-        this.cep         = cep;
-        this.complemento = complemento;
-        this.nmrCasa     = nmrCasa;
+        this.#cpf         = cpf;
+        this.#nome        = nome;
+        this.#cep         = cep;
+        this.#complemento = complemento;
+        this.#nmrCasa     = nmrCasa;
     }
 
     //Criando getters
@@ -95,7 +96,9 @@ class Pessoa{
 //esta funcao cria um novo usuario
 function novo(cpf, nome,cep, complemento, nmrCasa) 
 {
-    return new Pessoa(cpf,cep, nome, complemento, nmrCasa);
+    console.log(cpf, nome,cep, complemento, nmrCasa);
+    let novo=new Pessoa(cpf, nome,cep, complemento, nmrCasa)
+    return novo;
 }
 
 module.exports={novo};
