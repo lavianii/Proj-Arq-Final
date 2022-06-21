@@ -1,10 +1,11 @@
 function fazPost(url,body) {
-    console.log(body);
+   
     let resquest= new XMLHttpRequest();
     resquest.open("POST",url,true);
     resquest.setRequestHeader("Content-type","application/json");
     resquest.send(JSON.stringify(body));
 
+    //utilizado para recaregar a pagina
     resquest.onload = function () {
         console.log(this.responseText);
     }
