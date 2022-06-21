@@ -2,6 +2,7 @@ const comunicado    = require('./comunicado');
 const pessoa        = require('../database/dbo/pessoa.js');
 const pessoas       = require('../database/dao/pessoas.js');
 
+
 async function inclusao(req, res)   
 {
    
