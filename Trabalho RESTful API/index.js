@@ -48,7 +48,7 @@ async function ativaçaoDoServidor()
     app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
     app.delete('/remover/:cpf'           ,rotas.remocao);
     app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
-    app.get('/verCep'                    ,rotas.recuperacaoCep);
+    app.get('/verCep/:cpf'               ,rotas.recuperacaoCep);
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);

@@ -1,3 +1,4 @@
+
 function fazPost(url,body) {
    
     let resquest= new XMLHttpRequest();
@@ -12,6 +13,7 @@ function fazPost(url,body) {
     return resquest.responseText;
     
 }
+
 
 function incluir() {
 
