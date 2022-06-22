@@ -44,20 +44,21 @@ async function inclusao(req, res)
 }
 
 async function atualizacaoEndereço(req, res) 
-{
+{     
+    console.log(req.body.cpf, req.body.cep, req.body.nmrCasa)
      // ele pode ser igual a 4 ou 3 porque o complemento pode ser nulo
-    if (Object.values(req.body).length != 4 && Object.values(req.body).length != 3 || !req.body.cpf || !req.body.cep|| !req.body.complemento || !req.body.nmrCasa)  
-    {
+    if ((req.body).length != 3  || (req.body).length != 4|| !req.body.cpf || !req.body.cep|| !req.body.nmrCasa)  
+    {       
         const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas(cpf, cep,  numero de sua casa)').object; 
        
         return res.status(422).json(erro); 
     }
 
     //Verificando se os dados estao corretos
-    let pessoa;
+    let verificaDados;
     try 
     {
-        pessoa = pessoa.novo(req.body.cpf, req.body.cep, req.body.complemento, req.body.nmrCasa)
+        verificaDados = pessoa.novo(req.body.cpf, req.body.cep, req.body.nmrCasa, req.body.complemento)
     } 
     catch (error) 
     {
@@ -66,7 +67,7 @@ async function atualizacaoEndereço(req, res)
     }
 
   // Verificando se o CPF é valido
-    let ret = await pessoas.recupereCadastro(cpf);
+    let ret = await pessoa.recupereCadastro(cpf);
     
     if (ret === null) 
     {
@@ -111,16 +112,15 @@ async function atualizacaoNome(req, res)
 {
     if (Object.values(req.body).length != 2 || !req.body.cpf || !req.body.nome)  
     {
-        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 4 informações esperadas(cpf e nome)').object; 
+        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente 2 informações esperadas(cpf e nome)').object; 
        
         return res.status(422).json(erro); 
     }
-
     //Verificando se os dados sao validos
-    let pessoa;
+    let verificaPessoa
     try 
     {
-        pessoa = pessoa.novo(req.body.cpf, req.body.nome)
+       verificaPessoa = pessoa.novo(req.body.cpf, req.body.nome)
     } 
     catch (error) 
     {
@@ -128,16 +128,15 @@ async function atualizacaoNome(req, res)
         return res.status(422).json(erro); 
     }
 
-    //Verificando se o CPF existe
+    //guardando a requisão cpf na variavel cpf
     const cpf = req.params.cpf;
-
 
     let ret = await pessoas.recupereCadastro(cpf);
     
-    if (ret === null) 
-    {
-        const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object; 
-        return res.status(500).json(erro);       
+     if (ret === null) 
+     {
+         const erro = comunicado.novo('CBD','Sem conexao com o BD','Não foi possivel estabelecer conexao com o banco de dados').object; 
+         return res.status(500).json(erro);       
     }
 
     if (ret === false) 
@@ -148,12 +147,12 @@ async function atualizacaoNome(req, res)
 
     if (ret.length == 0) 
     {
-        const erro = comunicado.novo('PNE','Pessoa inexistente','Não há uma pessoa cadastrada com esse cpf').object; 
+       const erro = comunicado.novo('PNE','Pessoa inexistente','Não há uma pessoa cadastrada com esse cpf').object; 
         return res.status(404).json(erro); 
     }
     
-    //Atualizando
-    ret = await pessoa.atualizeNome(pessoa);
+     //Atualizando
+     ret = await pessoas.atualizeNome(pessoa);
 
     if (ret === null) 
     {
@@ -161,10 +160,10 @@ async function atualizacaoNome(req, res)
         return res.status(500).json(erro); 
     }
 
-    if (ret === false) {
+   if (ret === false) {
 
-        const erro = comunicado.novo('FNC','Falha de comando de SQL','O comando de SQL apresenta algum erro').object; 
-        return res.status(409).json(erro); 
+    const erro = comunicado.novo('FNC','Falha de comando de SQL','O comando de SQL apresenta algum erro').object; 
+       return res.status(409).json(erro); 
     }
 
     //Retornando sucesso

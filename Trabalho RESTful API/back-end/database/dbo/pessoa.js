@@ -9,7 +9,6 @@ class Pessoa{
 
     constructor(cpf,nome,cep,complemento,nmrCasa)
     {
-        console.log('cheguei');
         //esse construtor esta chamando os meus setters
         this.#cpf         = cpf;
         this.#nome        = nome;
@@ -96,7 +95,6 @@ class Pessoa{
 //esta funcao cria um novo usuario
 function novo(cpf, nome,cep, complemento, nmrCasa) 
 {
-    console.log(cpf, nome,cep, complemento, nmrCasa);
     let novo=new Pessoa(cpf, nome,cep, complemento, nmrCasa)
     return novo;
 }
