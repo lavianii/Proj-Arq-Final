@@ -9,7 +9,7 @@ class Pessoa{
 
     constructor(cpf,nome,cep,complemento,nmrCasa)
     {
-        console.log('cheguei');
+      
         //esse construtor esta chamando os meus setters
         this.#cpf         = cpf;
         this.#nome        = nome;

@@ -50,7 +50,8 @@ async function ativaçaoDoServidor()
     app.delete('/remover/:cpf'           ,rotas.remocao);
     app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
     app.get('/verCep/:cpf'               ,rotas.recuperacaoCep);
-    app.get('/verEndereço/:cep'           ,microServ.recuperaEndereço);
+    app.get('/verEndereço/:cep'          ,microServ.recuperaEndereço);
+   
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);
