@@ -7,11 +7,11 @@ const microServ= require('./MicroServiço/rotas');
 function middleWareGlobal(req, res, next) 
 {
     console.time('Duraçao'); 
-    console.log('Iniciou o processamento da requisiçao'+req.metod+'em'+req.url);
+    console.log(req.url);
 
     next(); 
 
-    console.log('Terminou o processamento da requisiçao'+req.metod+'em'+req.url);
+    console.log(req.url);
     console.timeEnd('Duraçao');
 }
 
@@ -51,7 +51,10 @@ async function ativaçaoDoServidor()
     app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
     app.get('/verCep/:cpf'               ,rotas.recuperacaoCep);
     app.get('/verEndereço/:cep'          ,microServ.recuperaEndereço);
+<<<<<<< HEAD
    
+=======
+>>>>>>> 90d44afa70e06eff7ecd3bda3b5eb3afc5f43f0d
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);

@@ -26,9 +26,9 @@ async function atualizeEndereco (pessoa)
   
     try 
     {
-        const sql= 'UPDATE pessoas SET cep=?, complemento=?, nmrCasa=? WHERE cpf=?';
-        const dados= [pessoa.cep, pessoa.complemento, pessoa.nmrCasa ,pessoa.cpf ];
-        await conexao.query (sql,dados);
+        const sql= 'UPDATE pessoas SET cep=?,nmrCasa=? WHERE cpf=?';
+        const dados= [pessoa.cep(), pessoa.nmrCasa() ,pessoa.cpf() ];
+        await conexao.query (sql, dados);
 
         return true;
     } 
