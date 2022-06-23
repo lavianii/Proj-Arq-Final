@@ -1,3 +1,4 @@
+
 function consultar()
 {
     const cpff=document.getElementById('CPF');
@@ -10,9 +11,11 @@ function consultar()
     const cep=document.getElementById('CEP');
 
     const url         = "http://localhost:3000/verCadastro/";
-    const urlApi="/verEndereço/"
+    const urlApi="https://api.postmon.com.br/v1/cep/"
     const CPF          = document.getElementById('cpf').value;
     event.preventDefault();
+
+    
 
     axios.get(`${url}${CPF}`)
     .then((response) => {
@@ -23,25 +26,28 @@ function consultar()
         cpff.textContent=Data[0].cpf;
         nmrCasa.textContent=Data[0].nmrCasa;
         complemento.textContent=Data[0].complemento;
-        cep.textContent=Data[0].cep;
+    
 
+        axios.get(`${urlApi}${Data[0].cep}`)
+        .then((response) => {
+           
+            const Data=response.data;
 
+            bairro.textContent=Data.bairro;
+            rua.textContent=Data.logradouro;
+            cidade.textContent=(`${Data.cidade}-${Data.estado}`);
+            cep.textContent=Data.cep;
+    
+            
+    
+       })
+        .catch((err) => console.log(err))
 
+   
    })
     .catch((err) => console.log(err))
 
-    const CEP=document.getElementById('CEP').innerText;
-    console.log(CEP);
 
-    axios.get(`${urlApi}${CEP}`)
-    .then((response) => {
-       
-        const Data=response.data;
-
-        console.log(Data);
-
-   })
-    .catch((err) => console.log(err))
     
 }
 
