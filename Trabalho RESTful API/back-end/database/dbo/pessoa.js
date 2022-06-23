@@ -7,10 +7,13 @@ class Pessoa{
     #nmrCasa
 
 
-    constructor(cpf,nome,cep,complemento,nmrCasa)
+    constructor(cpf, nome, cep, complemento, nmrCasa)
     {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 1575bbecf7c66493a9ee964f4e02f633069b7820
         //esse construtor esta chamando os meus setters
         this.#cpf         = cpf;
         this.#nome        = nome;
@@ -47,12 +50,12 @@ class Pessoa{
     //Criando setters
     set cpf (cpf)
     {
-        if (cpf===undefined || typeof cpf !== 'string' || cpf==='')
+        if (cpf === undefined || typeof cpf !== 'string' || cpf==='')
         {
             throw ('Cpf Invalido!!');
         }
 
-        this.cpf = cpf;
+        this.#cpf = cpf;
     }
 
     set nome (nome)
@@ -71,7 +74,7 @@ class Pessoa{
             throw ('Cep Invalido!!');
         }
 
-        this.cep = cep;
+        this.#cep = cep;
     }
 
     set complemento(complemento)
@@ -95,9 +98,9 @@ class Pessoa{
 }
 
 //esta funcao cria um novo usuario
-function novo(cpf, nome,cep, complemento, nmrCasa) 
+function novo(cpf, nome, cep, complemento, nmrCasa) 
 {
-    let novo=new Pessoa(cpf, nome,cep, complemento, nmrCasa)
+    let novo=new Pessoa(cpf, nome, cep, complemento, nmrCasa)
     return novo;
 }
 
