@@ -45,15 +45,16 @@ async function inclusao(req, res)
 
 async function atualizacaoEndereço(req, res) 
 {     
+
     console.log(req.body.cpf, req.body.cep, req.body.nmrCasa)
-     // ele pode ser igual a 4 ou 3 porque o complemento pode ser nulo
-    if ((req.body).length != 3  || (req.body).length != 4|| !req.body.cpf || !req.body.cep|| !req.body.nmrCasa)  
+    // ele pode ser igual a 4 ou 3 porque o complemento pode ser nulo
+    if (Object.values(req.body).length != 4 || !req.body.cpf || !req.body.cep || !req.body.nmrCasa || !req.body.complemento)  
     {       
-        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas(cpf, cep,  numero de sua casa)').object; 
+        const erro = comunicado.novo('Ddi','Dados inesperados','Não foram fornecidos exatamente as 3 informações esperadas(cpf, cep, numero de sua casa)').object; 
        
         return res.status(422).json(erro); 
     }
-
+    
     //Verificando se os dados estao corretos
     let verificaDados;
     try 
@@ -66,8 +67,8 @@ async function atualizacaoEndereço(req, res)
         return res.status(422).json(erro); 
     }
 
-  // Verificando se o CPF é valido
-    let ret = await pessoa.recupereCadastro(cpf);
+    // Verificando se o CPF é valido
+    let ret = await pessoas.recupereCadastro(req.body.cpf);
     
     if (ret === null) 
     {
@@ -88,7 +89,7 @@ async function atualizacaoEndereço(req, res)
     }
     
     //Atualizando o Endereço
-    ret = await pessoa.atualizeEndereço(pessoa);
+    ret = await pessoas.atualizeEndereco(pessoa);
 
     // Verificaçoes da atualizaçao
     if (ret === null) 
@@ -150,7 +151,9 @@ async function atualizacaoNome(req, res)
        const erro = comunicado.novo('PNE','Pessoa inexistente','Não há uma pessoa cadastrada com esse cpf').object; 
         return res.status(404).json(erro); 
     }
-    
+    nome = req.body.nome
+    pessoa.nome = nome
+
      //Atualizando
      ret = await pessoas.atualizeNome(pessoa);
 
