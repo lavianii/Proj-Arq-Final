@@ -9,11 +9,6 @@ class Pessoa{
 
     constructor(cpf, nome, cep, complemento, nmrCasa)
     {
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1575bbecf7c66493a9ee964f4e02f633069b7820
         //esse construtor esta chamando os meus setters
         this.#cpf         = cpf;
         this.#nome        = nome;

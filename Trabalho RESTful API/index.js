@@ -49,15 +49,7 @@ async function ativaçaoDoServidor()
     app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
     app.delete('/remover/:cpf'           ,rotas.remocao);
     app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
-<<<<<<< HEAD
-   /* app.get('/verEndereco/:cep'          ,microServ.recuperaEndereço);*/
-
-   
-
-=======
-    app.get('/verCep/:cpf'               ,rotas.recuperacaoCep);
     app.get('/verEndereço/:cep'          ,microServ.recuperaEndereço);
->>>>>>> 1575bbecf7c66493a9ee964f4e02f633069b7820
 
     console.log('Servidor Rodando na porta 3000');
     app.listen(3000);

@@ -89,7 +89,7 @@ async function atualizacaoEndereço(req, res)
     }
     
     //Atualizando o Endereço
-    ret = await pessoas.atualizeEndereco(pessoa);
+    ret = await pessoas.atualizeEndereco(verificaDados);
 
     // Verificaçoes da atualizaçao
     if (ret === null) 
@@ -155,7 +155,7 @@ async function atualizacaoNome(req, res)
     pessoa.nome = nome
 
      //Atualizando
-     ret = await pessoas.atualizeNome(pessoa);
+     ret = await pessoas.atualizeNome(verificaPessoa);
 
     if (ret === null) 
     {
