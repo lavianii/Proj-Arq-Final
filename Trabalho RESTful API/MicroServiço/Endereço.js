@@ -39,4 +39,3 @@ function checaEndereço(cep) {
   
 
 module.exports={checaEndereço};
-

@@ -46,7 +46,6 @@ async function inclusao(req, res)
 async function atualizacaoEndereço(req, res) 
 {     
 
-    console.log(req.body.cpf, req.body.cep, req.body.nmrCasa)
     // ele pode ser igual a 4 ou 3 porque o complemento pode ser nulo
     if (Object.values(req.body).length != 4 || !req.body.cpf || !req.body.cep || !req.body.nmrCasa || !req.body.complemento)  
     {       
@@ -54,12 +53,11 @@ async function atualizacaoEndereço(req, res)
        
         return res.status(422).json(erro); 
     }
-    
     //Verificando se os dados estao corretos
     let verificaDados;
     try 
-    {
-        verificaDados = pessoa.novo(req.body.cpf, req.body.cep, req.body.nmrCasa, req.body.complemento)
+    {   //unica alteração feita, pois o construtor exigia o parametro REQ.BODY.NOME
+        verificaDados = pessoa.novo(req.body.cpf, req.body.nome, req.body.cep, req.body.nmrCasa, req.body.complemento)
     } 
     catch (error) 
     {

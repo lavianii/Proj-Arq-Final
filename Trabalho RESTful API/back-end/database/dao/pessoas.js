@@ -6,9 +6,10 @@ async function inclua(pessoa)
     if(conexao == null) {return null}
 
     try 
-    {
+    {   
         const sql   ='INSERT INTO pessoas (cpf, nome, cep, complemento, nmrCasa) VALUES (?, ?, ?, ?, ?)';
-        const dados = [pessoa.cpf, pessoa.nome,pessoa.cep, pessoa.complemento, pessoa.nmrCasa];
+        //unica alteração feita, pois o construtor exigia o parametro o NOME
+        const dados = [pessoa.cpf, pessoa.nome, pessoa.cep, pessoa.complemento, pessoa.nmrCasa];
         await conexao.query (sql, dados);
         
         return true;  
@@ -26,10 +27,10 @@ async function atualizeEndereco (pessoa)
   
     try 
     {
-        const sql= 'UPDATE pessoas SET cep=?,nmrCasa=?, complemento=? WHERE cpf=?';
-        const dados = [pessoa.cep, pessoa.nmrCasa ,pessoa.complemento, pessoa.cpf];
+        const sql= 'UPDATE pessoas SET cep=?, complemento=?, nmrCasa=? WHERE cpf=?';
+        const dados = [pessoa.cep, pessoa.complemento, pessoa.nmrCasa, pessoa.cpf];
         await conexao.query (sql, dados);
-        console.log(pessoa.cep, pessoa.nmrCasa ,pessoa.complemento, pessoa.cpf)
+        
         
         return true;
     } 

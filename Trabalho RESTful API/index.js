@@ -45,10 +45,11 @@ async function ativaçaoDoServidor()
     });
 
     app.post('/incluir'                  ,rotas.inclusao);
-    app.put('/alterarEndereco/:cpf'      ,rotas.atualizacaoEndereço);
-    app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
     app.delete('/remover/:cpf'           ,rotas.remocao);
+    app.put('/alterarNome/:cpf'          ,rotas.atualizacaoNome);
+    app.put('/alterarEndereco/:cpf'      ,rotas.atualizacaoEndereço);
     app.get('/verCadastro/:cpf'          ,rotas.recuperacaoCadastro);
+    
     app.get('/verEndereço/:cep'          ,microServ.recuperaEndereço);
 
     console.log('Servidor Rodando na porta 3000');

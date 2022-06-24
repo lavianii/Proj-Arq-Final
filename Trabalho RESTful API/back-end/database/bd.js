@@ -23,7 +23,7 @@ async function estruturese()
     {
         return null;
     }
-    const sql = 'CREATE TABLE IF NOT EXISTS pessoas (cpf VARCHAR(30), nome VARCHAR(60) NOT NULL, cep VARCHAR(20) NOT NULL, complemento VARCHAR(60) , nmrCasa INT NOT NULL, PRIMARY KEY (cpf))';
+    const sql = 'CREATE TABLE IF NOT EXISTS pessoas (cpf VARCHAR(30), nome VARCHAR(60)NOT NULL, cep VARCHAR(20) NOT NULL, complemento VARCHAR(60) , nmrCasa INT NOT NULL, PRIMARY KEY (cpf))';
    
     try 
     {
