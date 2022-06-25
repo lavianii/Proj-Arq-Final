@@ -31,11 +31,14 @@ function incluir() {
         "complemento": complemento,
         "nmrCasa": nmrCasa
 
-
     }
-    axios.post(url ,json
-        ).then((e) => { location.reload();
-        alert("Dados Enviados com sucesso")})
+    
+    axios.post(url ,json)
+    .then((e) => { 
+    
+        alert("Dados Enviados com sucesso");
+        location.reload();
+    })
         .catch((err) => console.log(err))
 }
 

@@ -55,7 +55,7 @@ class Pessoa{
 
     set nome (nome)
     {
-        if (nome === undefined || typeof codigo !== 'string' || nome === '')
+        if (nome === undefined || typeof nome !== 'string' || nome === '')
         {
             throw ('Nome Invalido!!');
         }
@@ -64,7 +64,7 @@ class Pessoa{
     }
     set cep (cep)
     {
-        if (nome===undefined || typeof codigo !== 'string' || nome==='')
+        if (cep===undefined || typeof cep !== 'string' || cep==='')
         {
             throw ('Cep Invalido!!');
         }

@@ -1,4 +1,3 @@
-
 module.exports={
     host: process.env.NODE_MYSQL_SERVIDOR,
     user: process.env.NODE_MYSQL_USUARIO,

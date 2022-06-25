@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta</title>
+    <title>Nome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styleConsulta.css">
+    <link rel="stylesheet" href="css/styleAtualizaDados.css">
 </head>
 <body>
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">
         <img src="./img/Icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Consulta
+        Endereço
     </a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="./incluir.html">Cadastro <span class="sr-only">(Página atual)</span></a>
+                    <a class="nav-link" href="./incluir.html">Cadastro </a>
                 </li>
 
                 <li class="nav-item">
@@ -27,16 +27,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./consulta.html">Consultar</a>
+                    <a class="nav-link" href="./consultar.html">Consultar</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./alterarEndereço.html">Atualizar Endereço</a>
+                    <a class="nav-link" href="./atualizaDados.html">Atualizar <span class="sr-only"></span></a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="./alterarNome.html">Atualizar Nome</a>
-                </li>
           </ul>
         </div>
 </nav>
@@ -46,35 +43,46 @@
 <div class="row">
 
     <div class="col-12 text-center">
-        <div class="card" id="card2">
+        <div class="card">
             <div class="card-body ">
-                <h1>Consultar</h1>
+                <h1>Atualiza Dados</h1>
             
-            <form id="formulario" class="form-group" onsubmit="consultar()">
+            <form id="formulario" class="form-group" onsubmit="atualizaDados()">
             
-                
-                <div class=" input mb-3 " >
-                    <input type="text" placeholder="Digite seu CPF" class="form-control" id="cpf" required>
+                <div class=" input mb-2 " >
+                    <input type="text" placeholder="Digite seu CPF" class="form-control"  id="CPF"  required>
                 </div>
 
-                <div class="input">
-<<<<<<< HEAD
-                    <input type="submit"  value="Enviar" class="form-control"  aria-describedby="inputGroup-sizing-default" id="enviar" />
-                   
-=======
-                    <a href="./infsUsuario.html"><button type="submit" class="form-control"  aria-describedby="inputGroup-sizing-default" id="enviar">Consultar</button></a>
->>>>>>> 90d44afa70e06eff7ecd3bda3b5eb3afc5f43f0d
+                <div class=" input mb-2 mt-2" >
+                    <input type="text" placeholder="Digite seu nome" class="form-control" id="nome" required>
                 </div>
+
+                <div class=" input mb-2 mt-2" >
+                    <input type="text" placeholder="Digite seu CEP" class="form-control" id="CEP" required>
+                </div>
+
+                <div class=" input mb-2 mt-2" >
+                    <input type="text" placeholder="Digite o numero da casa" class="form-control" id="nmrCasa" required>
+                </div>
+
+                <div class=" input mb-2 mt-2" >
+                    <input type="text" placeholder="Digite o complemento" class="form-control" id="complemento" required>
+                </div>
+
+                <div class=" input">
+                    <input type="submit"  value="Enviar" class="form-control"  aria-describedby="inputGroup-sizing-default" id="enviar">
+                </div>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
 </div>
-   
+    
 </body>
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <script src="./Js/consultar.js"></script>
+   <script src="./Js/atualizaDados.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

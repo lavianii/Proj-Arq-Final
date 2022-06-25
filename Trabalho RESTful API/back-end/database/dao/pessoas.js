@@ -20,34 +20,15 @@ async function inclua(pessoa)
     }
 }
 
-async function atualizeEndereco (pessoa) 
+async function atualizaDados (pessoa) 
 {
     const conexao = await bd.getConexao();
     if(conexao == null) {return null}
   
     try 
     {
-        const sql= 'UPDATE pessoas SET cep=?, complemento=?, nmrCasa=? WHERE cpf=?';
-        const dados = [pessoa.cep, pessoa.complemento, pessoa.nmrCasa, pessoa.cpf];
-        await conexao.query (sql, dados);
-        
-        
-        return true;
-    } 
-    catch (error) 
-    {
-        return false;
-    }
-}
-async function atualizeNome (pessoa) 
-{
-    const conexao = await bd.getConexao();
-    if(conexao == null) {return null}
-  
-    try 
-    {
-        const sql= 'UPDATE pessoas SET nome=?  WHERE cpf=?';
-        const dados= [pessoa.nome , pessoa.cpf ];
+        const sql= 'UPDATE pessoas SET nome=?,cep=?,nmrCasa=?,complemento=?  WHERE cpf=?';
+        const dados= [pessoa.nome,pessoa.cep,pessoa.nmrCasa,pessoa.complemento,pessoa.cpf];
         await conexao.query (sql,dados);
 
         return true;
@@ -120,8 +101,7 @@ async function recupereCep(cpf) {
 module.exports = 
 {
     inclua, 
-    atualizeEndereco,
-    atualizeNome, 
+    atualizaDados, 
     remova, 
     recupereCadastro,
     recupereCep,

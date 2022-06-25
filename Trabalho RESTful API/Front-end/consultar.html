@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações do usuario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styleInfsUsuario.css">
+    <link rel="stylesheet" href="css/styleConsultar.css">
 
 </head>
 
@@ -21,7 +21,7 @@
           <ul class="navbar-nav">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="./incluir.html">Cadastro <span class="sr-only">(Página atual)</span></a>
+                    <a class="nav-link" href="./incluir.html">Incluir</a>
                 </li>
 
                 <li class="nav-item">
@@ -29,7 +29,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./consulta.html">Consultar</a>
+                    <a class="nav-link" href="./consultar.html">Consultar <span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./atualizaDados.html">Atualizar</a>
                 </li>
 
           </ul>
@@ -46,7 +50,7 @@
                     <ul class="list-group">
 
                         <div class="titulos mt-3 mb-2">
-                            <h1>Informações Pessoais</h1>
+                            <h2>Informações Pessoais</h2>
                         </div>
 
                         <label for="nome" class="descriçao">nome:</label>
@@ -60,7 +64,7 @@
                         </li>
                    
                         <div class="titulos  mt-3 mb-2">
-                            <h1>Endereço</h1>
+                            <h2>Endereço</h2>
                         </div>
 
                         <label for="Rua"class="descriçao">Rua:</label>
@@ -94,8 +98,7 @@
                         </li>
 
                         <div class="links">
-                            <a href="./Js/alterarNome.js" id="link">Atualizar nome</a>
-                            <a href="./Js/alterarEndereço.js" id="link">Atualizar endereço</a>
+                            <a href="./Js/altualizaDados.js" id="link">Atualiza Dados</a>
                         </div>
 
                      </ul>
@@ -109,7 +112,7 @@
                     <div class="card" id="card2">
 
                         <div class="card-body ">
-                            <h1>Consultar</h1>
+                            <h2>Consultar</h2>
                         
                         <form id="formulario" class="form-group" onsubmit="consultar()">
                         

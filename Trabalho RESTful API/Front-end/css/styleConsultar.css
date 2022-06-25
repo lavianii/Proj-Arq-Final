@@ -20,9 +20,10 @@ body{
 }
 
 #lista{
-    border-radius: 15px;
+    border-radius: 8px;
     margin-left: 10px;
     margin-right: 20px;
+    padding: 5px;
     
 }
 
@@ -45,8 +46,8 @@ body{
     background-color: aquamarine;
     padding-top: 7px;
     padding-bottom: 7px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left:205px;
+    padding-right: 205px;
     margin-left: 10px;
     background-color: black;
     color: azure;
