@@ -4,6 +4,7 @@ function atualizaDados(){
     const cep           = document.getElementById('CEP').value;
     const complemento   = document.getElementById('complemento').value;
     const nmrCasa         = document.getElementById('nmrCasa').value;
+    
     const url         = "http://localhost:3000/alterarDados/"+cpf;
 
    event.preventDefault();

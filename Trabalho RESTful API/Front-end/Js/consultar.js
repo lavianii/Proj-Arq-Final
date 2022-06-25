@@ -12,6 +12,7 @@ function consultar()
 
     const url         = "http://localhost:3000/verCadastro/";
     const urlApi="https://api.postmon.com.br/v1/cep/"
+    
     const CPF          = document.getElementById('cpf').value;
 
     event.preventDefault();

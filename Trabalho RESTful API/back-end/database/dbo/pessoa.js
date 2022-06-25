@@ -95,7 +95,7 @@ class Pessoa{
 //esta funcao cria um novo usuario
 function novo(cpf, nome, cep, complemento, nmrCasa) 
 {
-    let novo=new Pessoa(cpf, nome, cep, complemento, nmrCasa)
+    let novo = new Pessoa(cpf, nome, cep, complemento, nmrCasa)
     return novo;
 }
 

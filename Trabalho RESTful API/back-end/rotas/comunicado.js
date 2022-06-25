@@ -5,9 +5,9 @@ class Comunicado{
 
     constructor(codigo, mensagem, descricao)
     {
-        this.codigo     = codigo;
-        this.mensagem   = mensagem;
-        this.descricao  = descricao;
+        this.#codigo     = codigo;
+        this.#mensagem   = mensagem;
+        this.#descricao  = descricao;
     }
 
     //getters

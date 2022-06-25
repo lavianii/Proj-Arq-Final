@@ -9,7 +9,7 @@ function excluir() {
     axios.delete(`${url}/${cpf}`)
     .then((e) => {
 
-        alert("Dados removidos com sucesso")/
+        alert("Dados removidos com sucesso")
         location.reload();
     
     })

@@ -43,7 +43,6 @@ async function inclusao(req, res)
     return res.status(201).json(sucesso); 
 }
 
-
 async function atualizacaoDados(req, res) 
 {
     if (Object.values(req.body).length != 5 || !req.body.cpf || !req.body.nome || !req.body.cep|| !req.body.nmrCasa || !req.body.complemento)  
@@ -67,7 +66,6 @@ async function atualizacaoDados(req, res)
 
     //Verificando se o cpf existe
     const cpf = req.params.cpf;
-
     let ret = await pessoas.recupereCadastro(cpf);
     
      if (ret === null) 

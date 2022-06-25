@@ -8,7 +8,6 @@ async function inclua(pessoa)
     try 
     {   
         const sql   ='INSERT INTO pessoas (cpf, nome, cep, complemento, nmrCasa) VALUES (?, ?, ?, ?, ?)';
-        //unica alteração feita, pois o construtor exigia o parametro o NOME
         const dados = [pessoa.cpf, pessoa.nome, pessoa.cep, pessoa.complemento, pessoa.nmrCasa];
         await conexao.query (sql, dados);
         
@@ -77,6 +76,7 @@ async function recupereCadastro(cpf) {
         return false;
     }
 }
+
 async function recupereCep(cpf) {
 
     const conexao = await bd.getConexao();
@@ -105,5 +105,4 @@ module.exports =
     remova, 
     recupereCadastro,
     recupereCep,
-    //recupereUm não entendi me explica depois, pq quando vai rodar da erro e não contém método com ele
 };

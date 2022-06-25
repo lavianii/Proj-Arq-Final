@@ -6,7 +6,7 @@ function fazPost(url,body) {
     resquest.setRequestHeader("Content-type","application/json");
     resquest.send(JSON.stringify(body));
 
-    //utilizado para recaregar a pagina
+    
     resquest.onload = function () {
         console.log(this.responseText);
     }
@@ -18,6 +18,7 @@ function fazPost(url,body) {
 function incluir() {
 
     const url         = "http://localhost:3000/incluir";
+    
     const nome        = document.getElementById('nome').value;
     const cpf         = document.getElementById('cpf').value;
     const cep         = document.getElementById('cep').value;
@@ -35,12 +36,9 @@ function incluir() {
     
     axios.post(url ,json)
     .then((e) => { 
-    
+
         alert("Dados Enviados com sucesso");
-        location.reload();
+        
     })
         .catch((err) => console.log(err))
 }
-
-
-
