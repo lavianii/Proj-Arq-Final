@@ -1,13 +1,13 @@
-function atualizaDados(){
-    const cpf         = document.getElementById('CPF').value;
-    const nome         = document.getElementById('nome').value;
-    const cep           = document.getElementById('CEP').value;
-    const complemento   = document.getElementById('complemento').value;
-    const nmrCasa         = document.getElementById('nmrCasa').value;
-    
-    const url         = "http://localhost:3000/alterarDados/"+cpf;
+function atualizaDados() {
+    const cpf = document.getElementById('CPF').value;
+    const nome = document.getElementById('nome').value;
+    const cep = document.getElementById('CEP').value;
+    const complemento = document.getElementById('complemento').value;
+    const nmrCasa = document.getElementById('nmrCasa').value;
 
-   event.preventDefault();
+    const url = "http://localhost:3000/alterarDados/" + cpf;
+
+    preventDefault();
 
     let json = {
 
@@ -15,18 +15,18 @@ function atualizaDados(){
         "cep": cep,
         "complemento": complemento,
         "nmrCasa": nmrCasa,
-        "cpf":  cpf,
- 
+        "cpf": cpf,
+
     }
 
 
-    axios.put(url,json)
-    .then((e) => { 
-        
-    alert("Informações atualizadas com sucesso!!"); 
-    location.reload();
+    axios.put(url, json)
+        .then((e) => {
 
-    })
-    .catch((err) => console.log(err));
+            alert("Informações atualizadas com sucesso!!");
+            location.reload();
+
+        })
+        .catch((err) => console.log(err));
 }
 

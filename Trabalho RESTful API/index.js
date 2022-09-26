@@ -2,8 +2,6 @@ const express   = require('express');
 const bd        = require('./back-end/database/bd.js')
 const rotas     = require('./back-end/rotas/rotas.js');
 
-
-
 function middleWareGlobal(req, res, next) 
 {
     console.time('Duraçao'); 
